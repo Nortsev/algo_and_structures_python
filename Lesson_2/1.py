@@ -9,3 +9,44 @@
 Также сообщать пользователю о невозможности деления на ноль,
 если он ввел 0 в качестве делителя.
 """
+
+
+def calculator():
+    sign = input("Введите  знак операции или 0 для выхода")
+
+    if sign == '0':
+        return "Выход"
+    else:
+        if sign in "+-*/":
+            a = int(input("Первое число - "))
+            b = int(input("Второе число - "))
+
+            if sign == "+":
+                summ = a + b
+                print(f"Результат {summ}")
+                return calculator()
+
+            elif sign == "-":
+                diff = a - b
+                print(f"Результат {diff}")
+                return calculator()
+
+            elif sign == "*":
+                multiply = a * b
+                print(f"Результат {multiply}")
+                return calculator()
+
+            elif sign == "/":
+                if b != 0:
+                    div = a / b
+                    print(f"Результат  {div}")
+                else:
+                    print("Деление на ноль!")
+                    return calculator()
+        else:
+            print("Ошибка ввода символа ")
+            return calculator()
+
+
+print(calculator())
+

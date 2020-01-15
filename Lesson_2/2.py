@@ -3,3 +3,17 @@
 Например, если введено число 34560, то у него 3 четные цифры
 (4, 6 и 0) и 2 нечетные (3 и 5).
 """
+
+def recursion(a, i, j):
+    if a == 0:
+        print(f'Четных - {i}; Нечетных - {j}')
+    else:
+        if a % 2 == 0:
+            i += 1
+        else:
+            j += 1
+        return recursion(a // 10, i, j)
+
+
+num = int(input('Введите число: '))
+recursion(num, 0, 0)

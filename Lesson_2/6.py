@@ -5,3 +5,19 @@
 число, чем то, что загадано. Если за 10 попыток число не отгадано,
 то вывести загаданное число.
 """
+
+import random
+
+def trying (count,number):
+    inp = int (input(f"Попытка номер {count}  "))
+    if count == 10 or inp == number:
+        if inp == number:
+            print("Верно")
+        print(f"Загаданное число {number}")
+    else:
+        if inp > number:
+            print(f"Загаданное число меньше чем {inp}")
+        else:
+            print(f"Загаданное число больше чем {inp}")
+        trying(count + 1, number)
+trying(1,random.randint(0, 100))
