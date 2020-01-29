@@ -6,3 +6,37 @@
 массива. Но если это слишком сложно, то используйте метод сортировки,
  который не рассматривался на уроках
 """
+
+import random
+
+
+
+def get_median(lst):
+    left, middle, right = [], [], []
+    pivot = len(lst) // 2
+
+    for el in lst:
+        if el < lst[pivot]:
+            left.append(el)
+        elif el > lst[pivot]:
+            right.append(el)
+        else:
+            middle.append(el)
+
+    if lst == left + middle + right:
+
+        return lst[pivot]
+    else:
+        return get_median(left + middle + right)
+
+
+if __name__ == '__main__':
+    m = random.randint(2, 20)
+
+    random_list = [random.randint(-100, 100) for _ in range(2 * m + 1)]
+
+    print(random_list)
+    median = get_median(random_list)
+    print(f'Медиана списка: {median}')
+
+
